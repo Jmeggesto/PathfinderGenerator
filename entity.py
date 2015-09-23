@@ -18,6 +18,7 @@ class Entity():
 	def __init__(self,
 				 name = '',
 				 hp = 0,
+				 armor_class = 0,
 				 abilities = {},
 				 ability_mods = {},
 				 base_attack_bonus = 0,
