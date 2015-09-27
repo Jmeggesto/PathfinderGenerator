@@ -1,7 +1,7 @@
 class Game:
     @staticmethod
-    def choose_index_from_options(options):
-        print("Choose:")
+    def choose_index_from_options(options, description="one"):
+        print("Choose {}:".format(description))
         for i in range(len(options)):
             print("     {}. {}".format(i, options[i]))
         choice = -1
