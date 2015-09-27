@@ -10,4 +10,5 @@ class Game:
                 choice = int(raw_input("Enter the number of your choice: "))
             except ValueError:
                 print("Please enter a number.")
+        print("Chose {}.".format(options[choice]))
         return choice

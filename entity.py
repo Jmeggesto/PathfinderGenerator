@@ -1,13 +1,17 @@
 import random
+import math
 import klass
+
 class Entity(object):
+    lvl = 1
     def __init__(self, **kwargs):
+
         self.name = kwargs.get('name')
         self.set_random_abilities()
         self.klass = kwargs.get('class')
+        self.max_hp = 10
         self.hp = 10
-        self.base_attack_bonus = 2
-        self.damage = 2
+        self.base_attack_bonus = 0
 
     # generate random ability scores
     def fourd6_drop_lowest(self):
@@ -24,13 +28,14 @@ class Entity(object):
         self.ability_mods = {ability : score // 2 - 5 for ability, score in self.abilities.items()}
 
     # generic lvl up progression
-    def good_save_progression(self):
-        return math.floor(2 + self.lvl/2)
-    def poor_save_progression(self):
-        return math.floor(self.lvl/3)
     def good_bab_progression(self):
-        return math.floor(self.lvl)
+        return int(math.floor(self.lvl))
     def medium_bab_progression(self):
-        return math.floor(self.lvl*3/4)
+        return int(math.floor(self.lvl*3/4))
     def poor_bab_progression(self):
-        return math.floor(self.lvl/2)
+        return int(math.floor(self.lvl/2))
+
+    def good_save_progression(self):
+        return int(math.floor(2 + self.lvl/2))
+    def poor_save_progression(self):
+        return int(math.floor(self.lvl/3))
