@@ -1,4 +1,5 @@
 import random
+import klass
 class Entity(object):
     def __init__(self, **kwargs):
         self.name = kwargs.get('name')
@@ -21,3 +22,15 @@ class Entity(object):
         self.updateMods()
     def updateMods(self):
         self.ability_mods = {ability : score // 2 - 5 for ability, score in self.abilities.items()}
+
+    # generic lvl up progression
+    def good_save_progression(self):
+        return math.floor(2 + self.lvl/2)
+    def poor_save_progression(self):
+        return math.floor(self.lvl/3)
+    def good_bab_progression(self):
+        return math.floor(self.lvl)
+    def medium_bab_progression(self):
+        return math.floor(self.lvl*3/4)
+    def poor_bab_progression(self):
+        return math.floor(self.lvl/2)
